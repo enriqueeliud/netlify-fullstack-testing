@@ -14,10 +14,10 @@
  "scripts":
   { 
     "start": "react-scripts start", 
-    "start:lambda": "netlify-lambda serve src/lambda",
+    "start:lambda": "netlify-lambda serve src/lambda/server",
      "build": "run-p build:**",
     "build:app": "react-scripts build",
-    "build:lambda": "netlify-lambda build src/lambda", 
+    "build:lambda": "netlify-lambda build src/lambda/server", 
     "test": "react-scripts test", 
     "eject": "react-scripts eject"
    },
