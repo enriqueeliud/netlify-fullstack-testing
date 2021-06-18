@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import mine from './components/Mine'
 
 function App() {
   return (
     <div className="App">
-     <h1>ghhhhhhhbn </h1>
+     <mine />
     </div>
   );
 }
