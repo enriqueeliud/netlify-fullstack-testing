@@ -1,14 +1,20 @@
-const express = require('express')
-const path = require('path')
-const cors = require('cors')
-const PORT = process.env.PORT || 3003
+const express = require("express"); 
+const cors = require('cors'); 
+const serverless = require('serverless-http'); 
+const app = express(); 
+const router = express.Router(); 
+const mongoose = require('mongoose');
 
-const app = express()
-
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
-app.get('/users' , (req,res)=>{
- res.send('hi all')
-})
+ app.use(`/.netlify/functions/api`, router);
 
-app.listen(PORT, console.log("app listening on port: ${PORT}"))
+router.get('/ping', (req, res) => { 
+ res.send('pong!');
+ }); 
+
+
+ module.exports = app;
+ module.exports.handler = serverless(app);
